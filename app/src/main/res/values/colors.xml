@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gryffindorGold">#FFCA28</color>
+    <color name="gryffindorRed">#740001</color>
+    <color name="slytherinSilver">#C0C0C0</color>
+    <color name="slytherinGreen">#1A472A</color>
+    <color name="nightSky">#00040A</color>
+    <color name="scrollLight">#FFEC9E</color>
+    <color name="scrollMedium">#E1AD6D</color>
+    <color name="scrollDark">#C99157</color>
+</resources>

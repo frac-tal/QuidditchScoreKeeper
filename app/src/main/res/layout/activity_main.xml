@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nightSky"
+    tools:context="com.example.android.quidditchscorekeeper.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="@string/team_a_name"
+                android:textColor="@color/gryffindorGold"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/score_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:padding="16dp"
+                android:text="0"
+                android:textColor="@color/gryffindorGold"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/button_goal_a"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="serif"
+                android:onClick="goalA"
+                android:text="@string/goal_button_text"
+                android:textColor="@color/gryffindorGold"
+                android:theme="@style/Gryffindor.Button" />
+
+            <Button
+                android:id="@+id/button_snitch_a"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:fontFamily="serif"
+                android:onClick="snitchA"
+                android:text="@string/snitch_button_text"
+                android:textColor="@color/gryffindorGold"
+                android:theme="@style/Gryffindor.Button" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/broom" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="@string/team_b_name"
+                android:textColor="@color/slytherinSilver"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/score_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:padding="16dp"
+                android:text="0"
+                android:textColor="@color/slytherinSilver"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/button_goal_b"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="serif"
+                android:onClick="goalB"
+                android:text="@string/goal_button_text"
+                android:textColor="@color/slytherinSilver"
+                android:theme="@style/Slytherin.Button" />
+
+            <Button
+                android:id="@+id/button_snitch_b"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:fontFamily="serif"
+                android:onClick="snitchB"
+                android:text="@string/snitch_button_text"
+                android:textColor="@color/slytherinSilver"
+                android:theme="@style/Slytherin.Button" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button_end"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="serif"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/button_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button_reset"
+        android:fontFamily="serif"
+        android:onClick="captainsAgreement"
+        android:text="@string/end_game_button_text"
+        android:textColor="#4F3923" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="serif"
+        android:onClick="reset"
+        android:text="@string/reset_button_text"
+        android:textColor="#4F3923" />
+
+</RelativeLayout>

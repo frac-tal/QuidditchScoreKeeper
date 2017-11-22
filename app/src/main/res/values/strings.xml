@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quidditch Score Keeper</string>
+    <string name="team_a_name">Team A</string>
+    <string name="team_b_name">Team B</string>
+    <string name="end_game_button_text">End Game (Captains\' Agreement)</string>
+    <string name="reset_button_text">Reset</string>
+    <string name="win_a">Team A Wins!</string>
+    <string name="win_b">Team B Wins!</string>
+    <string name="draw">It\'s A Draw</string>
+    <string name="snitch_button_text">Snitch</string>
+    <string name="goal_button_text">10</string>
+</resources>
