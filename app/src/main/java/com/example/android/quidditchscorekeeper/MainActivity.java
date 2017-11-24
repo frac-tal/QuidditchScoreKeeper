@@ -13,6 +13,21 @@ public class MainActivity extends AppCompatActivity {
 
     int scoreTeamA = 0;
     int scoreTeamB = 0;
+    TextView scoreViewA;
+    TextView scoreViewB;
+    Button goalAButton;
+    Button goalBButton;
+    Button snitchAButton;
+    Button snitchBButton;
+    RelativeLayout rootView;
+    TextView winner;
+    Resources res;
+    int gold;
+    int red;
+    int silver;
+    int green;
+    int nightSky;
+    int scrollDark;
 
     /**
      * including the colors from resources as globals for readability, and so that getResources and
@@ -24,14 +39,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        scoreViewA = (TextView) findViewById(R.id.score_a);
+        scoreViewB = (TextView) findViewById(R.id.score_b);
+        goalAButton = (Button) findViewById(R.id.button_goal_a);
+        goalBButton = (Button) findViewById(R.id.button_goal_b);
+        snitchAButton = (Button) findViewById(R.id.button_snitch_a);
+        snitchBButton = (Button) findViewById(R.id.button_snitch_b);
+        rootView = (RelativeLayout) findViewById(R.id.root_view);
+        winner = (TextView) findViewById(R.id.text_winner);
+        res = getResources();
+        gold = res.getColor(R.color.gryffindorGold);
+        red = res.getColor(R.color.gryffindorRed);
+        silver = res.getColor(R.color.slytherinSilver);
+        green = res.getColor(R.color.slytherinGreen);
+        scrollDark = res.getColor(R.color.scrollDark);
+        nightSky = res.getColor(R.color.nightSky);
     }
 
     /**
      * Displays the given score for Team A.
      */
     public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.score_a);
-        scoreView.setText(String.valueOf(score));
+        scoreViewA.setText(String.valueOf(score));
     }
 
     /**
@@ -59,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
      * Display the given score for Team B
      */
     public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.score_b);
-        scoreView.setText(String.valueOf(score));
+        scoreViewB.setText(String.valueOf(score));
     }
 
     /**
@@ -89,22 +117,10 @@ public class MainActivity extends AppCompatActivity {
      * display winner in appropriate color
      */
     public void endGame() {
-        Button goalAButton = (Button) findViewById(R.id.button_goal_a);
-        Button goalBButton = (Button) findViewById(R.id.button_goal_b);
-        Button snitchAButton = (Button) findViewById(R.id.button_snitch_a);
-        Button snitchBButton = (Button) findViewById(R.id.button_snitch_b);
         snitchAButton.setEnabled(false);
         snitchBButton.setEnabled(false);
         goalAButton.setEnabled(false);
         goalBButton.setEnabled(false);
-        RelativeLayout rootView = (RelativeLayout) findViewById(R.id.root_view);
-        TextView winner = (TextView) findViewById(R.id.text_winner);
-        Resources res = getResources();
-        int gold = res.getColor(R.color.gryffindorGold);
-        int red = res.getColor(R.color.gryffindorRed);
-        int silver = res.getColor(R.color.slytherinSilver);
-        int green = res.getColor(R.color.slytherinGreen);
-        int scrollDark = res.getColor(R.color.scrollDark);
         if (scoreTeamA > scoreTeamB) {
             winner.setTextColor(gold);
             winner.setText(R.string.win_a);
@@ -136,13 +152,8 @@ public class MainActivity extends AppCompatActivity {
      * reset winner announcement
      */
     public void reset(View view) {
-        Resources res = getResources();
-        int nightSky = res.getColor(R.color.nightSky);
-        int scrollDark = res.getColor(R.color.scrollDark);
-        TextView winner = (TextView) findViewById(R.id.text_winner);
         winner.setText("");
         winner.setTextColor(scrollDark);
-        RelativeLayout rootView = (RelativeLayout) findViewById(R.id.root_view);
         rootView.setBackgroundColor(nightSky);
         scoreTeamA = 0;
         scoreTeamB = 0;
