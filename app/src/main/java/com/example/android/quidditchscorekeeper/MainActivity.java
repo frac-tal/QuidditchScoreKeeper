@@ -195,10 +195,6 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB = 0;
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
-        Button goalAButton = (Button) findViewById(R.id.button_goal_a);
-        Button goalBButton = (Button) findViewById(R.id.button_goal_b);
-        Button snitchAButton = (Button) findViewById(R.id.button_snitch_a);
-        Button snitchBButton = (Button) findViewById(R.id.button_snitch_b);
         snitchAButton.setEnabled(true);
         snitchBButton.setEnabled(true);
         goalAButton.setEnabled(true);
