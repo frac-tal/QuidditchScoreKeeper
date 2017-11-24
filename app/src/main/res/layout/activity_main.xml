@@ -138,7 +138,6 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="serif"
         android:padding="16dp"
-        android:textColor="@android:color/white"
         android:textSize="48sp" />
 
     <Button
@@ -149,7 +148,7 @@
         android:fontFamily="serif"
         android:onClick="captainsAgreement"
         android:text="@string/end_game_button_text"
-        android:textColor="#4F3923" />
+        android:textColor="@color/brown" />
 
     <Button
         android:id="@+id/button_reset"
@@ -159,6 +158,6 @@
         android:fontFamily="serif"
         android:onClick="reset"
         android:text="@string/reset_button_text"
-        android:textColor="#4F3923" />
+        android:textColor="@color/brown" />
 
 </RelativeLayout>
