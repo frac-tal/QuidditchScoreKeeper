@@ -11,8 +11,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int scoreTeamA = 0;
-    int scoreTeamB = 0;
+    static final String STATE_SCORE_A = "scoreTeamA";
+    static final String STATE_SCORE_B = "scoreTeamB";
+    static final String STATE_GAME_ENDED = "isGameEnded";
+
+    int scoreTeamA;
+    int scoreTeamB;
     TextView scoreViewA;
     TextView scoreViewB;
     Button goalAButton;
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     int green;
     int nightSky;
     int scrollDark;
+    boolean isGameEnded;
 
     /**
      * including the colors from resources as globals for readability, and so that getResources and
@@ -39,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            scoreTeamA = savedInstanceState.getInt(STATE_SCORE_A);
+            scoreTeamB = savedInstanceState.getInt(STATE_SCORE_B);
+            isGameEnded = savedInstanceState.getBoolean(STATE_GAME_ENDED);
+
+        } else {
+            scoreTeamA = 0;
+            scoreTeamB = 0;
+            isGameEnded = false;
+        }
+
         scoreViewA = (TextView) findViewById(R.id.score_a);
         scoreViewB = (TextView) findViewById(R.id.score_b);
         goalAButton = (Button) findViewById(R.id.button_goal_a);
@@ -47,14 +65,31 @@ public class MainActivity extends AppCompatActivity {
         snitchBButton = (Button) findViewById(R.id.button_snitch_b);
         rootView = (RelativeLayout) findViewById(R.id.root_view);
         winner = (TextView) findViewById(R.id.text_winner);
-        res = getResources();
-        gold = res.getColor(R.color.gryffindorGold);
-        red = res.getColor(R.color.gryffindorRed);
-        silver = res.getColor(R.color.slytherinSilver);
-        green = res.getColor(R.color.slytherinGreen);
-        scrollDark = res.getColor(R.color.scrollDark);
-        nightSky = res.getColor(R.color.nightSky);
+        res = (Resources) getResources();
+        gold = (int) res.getColor(R.color.gryffindorGold);
+        red = (int) res.getColor(R.color.gryffindorRed);
+        silver = (int) res.getColor(R.color.slytherinSilver);
+        green = (int) res.getColor(R.color.slytherinGreen);
+        scrollDark = (int) res.getColor(R.color.scrollDark);
+        nightSky = (int) res.getColor(R.color.nightSky);
+        displayForTeamA(scoreTeamA);
+        displayForTeamB(scoreTeamB);
+        if (isGameEnded == true) {
+            endGame();
+        }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the current state
+        savedInstanceState.putInt(STATE_SCORE_A, scoreTeamA);
+        savedInstanceState.putInt(STATE_SCORE_B, scoreTeamB);
+        savedInstanceState.putBoolean(STATE_GAME_ENDED, isGameEnded);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
 
     /**
      * Displays the given score for Team A.
@@ -117,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
      * display winner in appropriate color
      */
     public void endGame() {
+        isGameEnded = true;
         snitchAButton.setEnabled(false);
         snitchBButton.setEnabled(false);
         goalAButton.setEnabled(false);
@@ -167,5 +203,6 @@ public class MainActivity extends AppCompatActivity {
         snitchBButton.setEnabled(true);
         goalAButton.setEnabled(true);
         goalBButton.setEnabled(true);
+        isGameEnded = false;
     }
 }
